@@ -1,4 +1,5 @@
 import QRCode from "qrcode-generator";
+import { system } from "@silverbulletmd/silverbullet/syscalls";
 
 // Copy from qrcode-generator types
 type TypeNumber =
@@ -78,12 +79,15 @@ type Widget = {
   html: string;
 };
 
-export function qrcode(
+export async function qrcode(
   text: string,
   options?: QRCodeOptions,
-): Widget {
+): Promise<Widget> {
   return {
     _isWidget: true,
-    html: makeQR(text, options),
+    html: makeQR(text, {
+      ...(await system.getConfig<QRCodeOptions>("bulletqr")),
+      ...options,
+    }),
   };
 }

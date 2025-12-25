@@ -3,3 +3,19 @@ functions:
   qrcode:
     path: bulletqr.ts:qrcode
     syscall: bulletqr.qrcode
+config:
+  schema.config.properties:
+    bulletqr:
+      type: object
+      properties:
+        typeNumber:
+          type: number
+        errorCorrectionLevel:
+          type: string
+        cellSize:
+          type: number
+        margin:
+          type: number
+        mode:
+          type: string
+      nullable: true

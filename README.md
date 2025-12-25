@@ -1,20 +1,26 @@
----
-name: Library/utherpally/bulletqr/PLUG
-tags: meta/library
-files:
-- bulletqr.plug.js
----
+# bulletqr
 
 Generate QR Code images from text data.
 
 ## Usage
+
+Setup default options using space-lua (optional)
+```lua
+config.set {
+  bulletqr = {
+    typeNumber = 5,
+    errorCorrectionLevel = "H",
+    -- Other options here
+  }
+}
+```
 
 Basic usage:
 ```
 ${bulletqr.qrcode("https://example.com")}
 ```
 
-With options:
+With options (this will merge with default options):
 ```
 ${bulletqr.qrcode("Hello World", {cellSize: 5, margin: 2})}
 ```
