@@ -1,37 +1,47 @@
-# SilverBullet plug template
-Insert your plug description here. 
-
-## Development preparation
-1. In your (development) space, create a folder under `Library/` that you can use as a namespace, for instance using your Github username:
-```bash
-mkdir -p ~/myspace/Library/you
-```
-
-2. Symlink this plug's folder into your namespaced folder:
-
-```bash
-ln -s $PWD ~/myspace/Library/you/hello
-```
-
-3. Update the `name` attribute in `PLUG.md` to match the location of that PLUG file in your space, and the file name of the destination `.plug.js` file as well e.g.
-```
 ---
-name: Library/you/hello/PLUG
+name: Library/utherpally/bulletqr/PLUG
 tags: meta/library
 files:
-- myplug.plug.js
+- bulletqr.plug.js
 ---
+
+Generate QR Code images from text data.
+
+## Usage
+
+Basic usage:
+```
+${bulletqr.qrcode("https://example.com")}
 ```
 
-## Build
-To build this plug, make sure you have [Deno installed](https://docs.deno.com/runtime/). Then, build the plug with:
-
-```shell
-deno task build
+With options:
+```
+${bulletqr.qrcode("Hello World", {cellSize: 5, margin: 2})}
 ```
 
-Within ~20s SilverBullet will automatically sync your plug code, just watch your browser's JavaScript console to see when this happens. Then run the `Plugs: Reload` command to reload and reactivate the plug (no reload required).
+## Options
 
-## Distribution
-1. Commit the compiled `.plug.js` file to the repository
-2. Other people can now install your plug via the `Library: Install` command using the URL to your PLUG.md file as URI, e.g. `https://github.com/silverbulletmd/silverbullet-plug-template/blob/main/PLUG.md`
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `typeNumber` | 0-40 | 4 | QR code version (0 = auto) |
+| `errorCorrectionLevel` | "L", "M", "Q", "H" | "L" | Error correction level |
+| `cellSize` | number | 3 | Size of each cell in pixels |
+| `margin` | number | - | Margin around the QR code |
+| `mode` | "Numeric", "Alphanumeric", "Byte", "Kanji" | "Byte" | Encoding mode |
+
+## Examples
+
+URL:
+```
+${bulletqr.qrcode("https://silverbullet.md")}
+```
+
+WiFi credentials:
+```
+${bulletqr.qrcode("WIFI:T:WPA;S:MyNetwork;P:MyPassword;;")}
+```
+
+High error correction with larger cells:
+```
+${bulletqr.qrcode("Important data", {errorCorrectionLevel: "H", cellSize: 6})}
+```
