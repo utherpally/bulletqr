@@ -1,0 +1,30 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@silverbulletmd/silverbullet@^2.3.0": "2.3.0",
+    "npm:qrcode-generator@2.0.4": "2.0.4"
+  },
+  "jsr": {
+    "@silverbulletmd/silverbullet@2.3.0": {
+      "integrity": "a34e0134ddcecfb9cbe4213d80b8b0c5aec9f7ad1f88093d768fd362942d0db9"
+    }
+  },
+  "npm": {
+    "qrcode-generator@2.0.4": {
+      "integrity": "sha512-mZSiP6RnbHl4xL2Ap5HfkjLnmxfKcPWpWe/c+5XxCuetEenqmNFf1FH/ftXPCtFG5/TDobjsjz6sSNL0Sr8Z9g=="
+    }
+  },
+  "remote": {
+    "https://deno.land/x/silverbullet@2.3.0/client/lib/logger.ts": "09e3b6eabdb29203573da50950c9a08e75d7ca4f05bb56258413a758dda6201b",
+    "https://deno.land/x/silverbullet@2.3.0/client/plugos/protocol.ts": "1eca91d1fc2ef66ee5ed25f7b44c04f518b2d275a9f3d2a7b31c32d4437dd547",
+    "https://deno.land/x/silverbullet@2.3.0/client/plugos/proxy_fetch.ts": "ab6d1c3944b3631d73756c53d960144e15ef63e4e657ca6e41d546495d6bf09a",
+    "https://deno.land/x/silverbullet@2.3.0/client/plugos/worker_runtime.ts": "0237c0c2d689bb47fc7561f835d081d8cc582b047b5867bea6e8c0b073b4ed55",
+    "https://deno.land/x/silverbullet@2.3.0/plug-api/lib/crypto.ts": "37c25cbb8c34a0e38e76955389a3583fa18ff7a21a715be6f43e308d08a1e4e0"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@silverbulletmd/silverbullet@^2.3.0",
+      "npm:qrcode-generator@2.0.4"
+    ]
+  }
+}

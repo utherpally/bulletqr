@@ -1,0 +1,5 @@
+name: bulletqr
+functions:
+  qrcode:
+    path: bulletqr.ts:qrcode
+    syscall: bulletqr.qrcode
